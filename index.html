@@ -2,19 +2,23 @@
 <html lang="en" dir="ltr" class="sid-plesk">
 <head>
     <title>foirty eight exa</title>
-	<style>
-		body {
-  background-color: #4d4d4d;
-}
-
-h1 {
-  color: maroon;
-  margin-left: 40px;
-} 
-	</style>
+    <link rel="stylesheet" type="text/css" href="styles/stylesheet.css">
 </head>
 
 	<h1>you know my ahh not making a website</h1>
+  <h2>leave a message</h2>
+
+  <form action="index.php" method="post">
+    <label for="name">Name:</label>
+    <br>
+    <input type="text" id="name" name="name">
+    <br>
+    <label for="message">Message:</label>
+    <br>
+    <textarea type="text" id="message" name="message"></textarea>
+    <br>
+    <input type="submit" value="Submit">
+  </form>
 
 </body>
 </html>
