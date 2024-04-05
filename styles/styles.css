@@ -2,12 +2,14 @@ body {
   background: linear-gradient(#141414, #323232);
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-size: cover;
   display: grid;
+  height: 100dvh;
 }
 
 main {
-  margin: 1em;
-  padding: 1em;
+  margin: 2%;
+  padding: 0.5%;
   text-align: center;
   justify-content: center;
   display: grid;
@@ -15,8 +17,7 @@ main {
 
 footer {
   bottom: 0;
-  position: fixed;
-  width: 100%;
+  width: auto;
 }
 
 input {
@@ -44,7 +45,15 @@ li {
 }
 
 .spacer {
-  margin-top: 2em;
+  margin-top: 4%;
+}
+
+.max-width {
+  max-width: 75px !important;
+}
+
+.msg-min-width {
+  min-width: 300px !important;
 }
 
 .font-italic {
