@@ -1,6 +1,7 @@
 /** @format */
 /// <reference lib="es2017" />
 
+/// I am too used to C++ so here is a main function.
 function main(): void {
 	let dateElement: HTMLElement = document.querySelector("#date");
 	setTextHTML(dateElement, getFormattedDate());
@@ -14,6 +15,18 @@ function main(): void {
 	}, 1000);
 }
 
+/*
+ ***********************************
+ * Helper functions below
+ * This comment wall is only
+ * here so I don't have to scroll.
+ ***********************************
+ */
+
+/**
+ * @brief Sets the carousel elements to a random message.
+ * @returns `void`
+ */
 function setCarousel(): void {
 	let message: HTMLElement = document.querySelector("#userMessage");
 	let user: HTMLElement = document.querySelector("#userName");
@@ -28,11 +41,21 @@ function setCarousel(): void {
 	});
 }
 
+/**
+ * @brief Sets the innerHTML of an element.
+ * @param `HTMLElement` element The element to set the text of.
+ * @param `string` text The text to set the element to.
+ * @returns `void`
+ */
 function setTextHTML(element: HTMLElement, text: string): void {
 	element.innerHTML = text;
 }
 
-export function getFormattedDate(): string {
+/**
+ * @brief Gets the current date in a formatted string.
+ * @returns `string` The formatted date.
+ */
+function getFormattedDate(): string {
 	const date: Date = new Date();
 
 	let result: string =
@@ -53,6 +76,10 @@ export function getFormattedDate(): string {
 	return result;
 }
 
+/**
+ * @brief Fetches all messages from the server.
+ * @returns `Promise<string>` The messages from the server.
+ */
 async function getMessages(): Promise<string> {
 	let url = "api/get_messages.php";
 
@@ -66,4 +93,5 @@ async function getMessages(): Promise<string> {
 		});
 }
 
+/// I need my main function.
 document.addEventListener("DOMContentLoaded", main);
