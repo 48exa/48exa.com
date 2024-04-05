@@ -1,26 +1,30 @@
 <?php
-require_once("db_secret.php");
+include 'dbinfo.php';
 class Database
 {
-  public static string $host = "";
-  public static string $db_user = "";
-  public static string $db_password = "";
-  public static string $db_name = "";
+  private static string $host = "";
+  private static string $db_user = "";
+  private static string $db_password = "";
+  private static string $db_name = "";
+  private static ?DBInfo $secrets = null;
+  private static $db_connection = null;
 
   public function __construct()
   {
-    self::$host = dbinfo::$host;
-    self::$db_user = dbinfo::$db_user;
-    self::$db_password = dbinfo::$db_password;
-    self::$db_name = dbinfo::$db_name;
+    self::$secrets = new DBInfo();
+
+    self::$host = self::$secrets->host;
+    self::$db_user = self::$secrets->db_user;
+    self::$db_password = self::$secrets->db_password;
+    self::$db_name = self::$secrets->db_name;
   }
 
-  public static function test()
+  public function __destruct()
   {
-    die(dbinfo::$host);
+    if (!is_null(self::$db_connection)) {
+      self::$db_connection->close();
+    }
   }
-
-  private static $db_connection = null;
 
   private static function connect(): bool
   {
@@ -56,5 +60,35 @@ class Database
     }
 
     return $result;
+  }
+
+  public static function insert(string $message, string $name): bool
+  {
+    $sql = "INSERT INTO msg (message, user) VALUES (?, ?)";
+
+    if (is_null(self::$db_connection)) {
+      if (!self::connect()) {
+        return false;
+      }
+    }
+
+    if (!is_null(self::$db_connection)) {
+      $stmt = self::$db_connection->prepare($sql);
+      $stmt->bind_param("ss", $message, $name);
+      $stmt->execute();
+      $stmt->close();
+    }
+
+    return true;
+  }
+
+  public static function popUp(string $message): void
+  {
+    echo "<script>alert('$message');</script>";
+  }
+
+  public static function returnHome(): void
+  {
+    header("Location: /48exa.com/");
   }
 }
