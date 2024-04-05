@@ -1,6 +1,7 @@
+<?php require_once('../boilerplate/header.php'); ?>
+
 <?php
-require_once("../database/database.php");
-require_once("../database/db_secret.php");
+include '../database/database.php';
 
 $db = new Database();
 
