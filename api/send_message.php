@@ -1,7 +1,7 @@
 <?php
 include '../database/database.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' || $_SERVER['SERVER_NAME'] != 'localhost') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' || $_SERVER['SERVER_NAME'] != '48exa.com') {
 
   $message = $_POST['msg'];
   $name = $_POST['username'];
