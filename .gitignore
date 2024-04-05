@@ -1,0 +1,7 @@
+node_modules/
+.well-known/
+.vscode/
+database/db_secret.php
+package-lock.json
+package.json
+tsconfig.json

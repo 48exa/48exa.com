@@ -1,0 +1,62 @@
+body {
+  background: linear-gradient(#141414, #323232);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: grid;
+}
+
+main {
+  margin: 1em;
+  padding: 1em;
+  text-align: center;
+  justify-content: center;
+  display: grid;
+}
+
+footer {
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+}
+
+input {
+  outline: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: inline-block;
+}
+
+.type-effect {
+  height: fit-content;
+  width: fit-content;
+  border-right: .05em solid;
+  animation: caret 1s steps(1) infinite;
+}
+
+.beg {
+  opacity: 0.25;
+}
+
+.spacer {
+  margin-top: 2em;
+}
+
+.font-italic {
+  font-style: italic !important;
+}
+
+#donate-button-container {
+  margin: 1em;
+}
+
+@keyframes caret {
+  50% {
+    border-color: transparent;
+  }
+}
