@@ -1,5 +1,3 @@
-<?php require_once('../boilerplate/header.php'); ?>
-
 <?php
 include '../database/database.php';
 
