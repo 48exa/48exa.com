@@ -1,4 +1,3 @@
-"use strict";
 /** @format */
 /// <reference lib="es2017" />
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
@@ -37,8 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-exports.__esModule = true;
-exports.getFormattedDate = void 0;
+/// I am too used to C++ so here is a main function.
 function main() {
     var dateElement = document.querySelector("#date");
     setTextHTML(dateElement, getFormattedDate());
@@ -49,20 +47,41 @@ function main() {
         setCarousel();
     }, 1000);
 }
+/*
+ ***********************************
+ * Helper functions below
+ * This comment wall is only
+ * here so I don't have to scroll.
+ ***********************************
+ */
+/**
+ * @brief Sets the carousel elements to a random message.
+ * @returns `void`
+ */
 function setCarousel() {
     var message = document.querySelector("#userMessage");
     var user = document.querySelector("#userName");
     var date = document.querySelector("#userDate");
     getMessages().then(function (messages) {
         var randomMessage = messages[Math.floor(Math.random() * messages.length)];
-        setTextHTML(message, randomMessage["message"]);
-        setTextHTML(user, randomMessage["user"]);
+        setTextHTML(message, '"' + randomMessage["message"] + '"');
+        setTextHTML(user, "- " + randomMessage["user"]);
         setTextHTML(date, randomMessage["date"]);
     });
 }
+/**
+ * @brief Sets the innerHTML of an element.
+ * @param `HTMLElement` element The element to set the text of.
+ * @param `string` text The text to set the element to.
+ * @returns `void`
+ */
 function setTextHTML(element, text) {
     element.innerHTML = text;
 }
+/**
+ * @brief Gets the current date in a formatted string.
+ * @returns `string` The formatted date.
+ */
 function getFormattedDate() {
     var date = new Date();
     var result = date.getFullYear() +
@@ -80,7 +99,10 @@ function getFormattedDate() {
         date.getMilliseconds();
     return result;
 }
-exports.getFormattedDate = getFormattedDate;
+/**
+ * @brief Fetches all messages from the server.
+ * @returns `Promise<string>` The messages from the server.
+ */
 function getMessages() {
     return __awaiter(this, void 0, void 0, function () {
         var url;
@@ -96,4 +118,5 @@ function getMessages() {
         });
     });
 }
+/// I need my main function.
 document.addEventListener("DOMContentLoaded", main);

@@ -35,8 +35,8 @@ function setCarousel(): void {
 	getMessages().then((messages) => {
 		let randomMessage = messages[Math.floor(Math.random() * messages.length)];
 
-		setTextHTML(message, randomMessage["message"]);
-		setTextHTML(user, randomMessage["user"]);
+		setTextHTML(message, '"' + randomMessage["message"] + '"');
+		setTextHTML(user, "- " + randomMessage["user"]);
 		setTextHTML(date, randomMessage["date"]);
 	});
 }
