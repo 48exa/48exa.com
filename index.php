@@ -4,7 +4,7 @@
 <?php require_once('boilerplate/header.php'); ?>
 
 <main>
-  <h1 class="display-4 type-effect">Give me all of your money</h1>
+  <h1 class="display-4">Give me all of your money<span class="type-effect"> </span></h1>
 
   <div id="donate-button-container">
     <div id="donate-button"></div>
@@ -30,7 +30,7 @@
     <form class="form-inline justify-content-center needs-validation" action="api/send_message.php" method="POST" novalidate>
       <div class="row justify-content-center">
         <input type="text" maxlength="50" class="col-4 mx-1 rounded py-1" placeholder="Message" name="msg" id="msg" required></input>
-        <input type="text" maxlength="15" class="col-2 mx-1 rounded py-1" placeholder="Name" name="username" id="username" required></input>
+        <input type="text" maxlength="15" class="col-3 mx-1 rounded py-1 max-width" placeholder="Name" name="username" id="username" required></input>
       </div>
       <button type="submit" value="Submit" class="btn btn-outline-light my-3">Send</button>
     </form>
@@ -39,13 +39,11 @@
 
 <div class="container text-center">
   <div class="row justify-content-center">
-    <div class="col-4">
+    <div class="col-4 msg-min-width">
       <div class="card text-center d-flex align-items-center justify-content-center">
         <div class="card-body">
           <ul>
-            <li>"</li>
-            <li class="card-title font-italic" id="userMessage">Messages will show up here</li>
-            <li>"</li><br>
+            <li class="card-title font-italic" id="userMessage">Messages will show up here</li><br>
             <li class="card-title" id="userName">The Lord</li><br>
             <li class="card-title opacity-50 font-italic" id="userDate">The Epoch</li>
           </ul>
