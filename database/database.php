@@ -89,6 +89,6 @@ class Database
 
   public static function returnHome(): void
   {
-    header("Location: /48exa.com/");
+    header("Location: /");
   }
 }
